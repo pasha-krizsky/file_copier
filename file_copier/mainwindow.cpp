@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(this->width(),this->height());
 
     // Set some text...
-    ui->fileFrom->setText("C:\\Users\\Pasha\\Downloads\\720P_1500K_107484062.mp4");
-    ui->fileTo->setText("D:\\gallery\\videos\\stuff\\awesome_copied.mp4");
+    ui->fileFrom->setText("C:\\some_file_to_copy.txt");
+    ui->fileTo->setText("D:\\some_dir\\copied_file.txt");
 
     // Create new dialog with progress bar and two buttons
     dialog = new Dialog();
