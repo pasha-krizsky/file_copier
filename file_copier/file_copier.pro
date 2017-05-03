@@ -8,13 +8,14 @@ TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     dialog.cpp \
     copythread.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     dialog.h \
     copythread.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     dialog.ui
+
+CONFIG += console

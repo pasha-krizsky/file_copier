@@ -3,37 +3,31 @@
 
 #include <QThread>
 #include <QString>
+#include <fstream>
 
-// Class to copy file in new thread
 class CopyThread: public QThread
 {
 private:
-
-    // File to read
-    FILE *fin;
-    // File to write
-    FILE *fout;
-    // Size of a file
-    size_t m_file_size;
-    // Current progress
+    // Files
+    FILE *m_fin;
+    FILE *m_fout;
+    // This member stores size of a file (max size = 2^64 bytes)
+     long long  m_file_size;
+    // This member stores current progress of copying
     float m_copy_progress;
-    // Path to "fin"
-    QString file_from_path;
-    // Path to "fout"
-    QString file_to_path;
-    // Pause ("is_pause" == true) or Resume ("is_pause" == false)
-    bool is_pause;
-    // Stop (True when cancel button pressed)
-    bool is_stop;
+    // Pathes
+    QString m_file_from_path;
+    QString m_file_to_path;
+    // Flags
+    bool m_is_pause;
+    bool m_is_stop;
 
 Q_OBJECT
 
 public:
-    // Constructor
     CopyThread();
-    // Destructor
     ~CopyThread();
-    // Override "run" method
+    // This method is performed in a separate thread
     void run();
 
 signals:
@@ -43,8 +37,9 @@ signals:
     void endCopySignal();
     // Show "Dialog" if it is acceptable
     void showDialogSignal();
-    // Send error message to "Dialog" (file doesn't found)
+    // Send error message to "Dialog" (can't open file)
     void errorSignal();
+    void allCopiedSignal();
 
 public slots:
     // Get path from dialog
