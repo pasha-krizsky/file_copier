@@ -1,8 +1,4 @@
 #include "copythread.h"
-#include <fstream>
-#include <string>
-#include <QMessageBox>
-#include <QWaitCondition>
 
 // -------------------------------------------------------------
 CopyThread::CopyThread()

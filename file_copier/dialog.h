@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 #include "copythread.h"
 
 namespace Ui {
